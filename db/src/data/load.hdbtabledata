@@ -1,0 +1,19 @@
+{
+    "format_version": 1,
+    "imports": [
+        {
+            "target_table": "PO.APPROVAL_STATUS",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "status.csv",
+                "has_header": true
+            },
+            "import_settings": {
+                "import_columns": [
+                    "ID",
+					          "TEXT"
+                ]
+            }
+        }
+    ]
+}

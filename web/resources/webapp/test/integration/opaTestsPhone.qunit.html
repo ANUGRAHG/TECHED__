@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Opa tests for My super app</title>
+		<meta http-equiv='X-UA-Compatible' content='IE=edge' />
+		<meta charset="UTF-8">
+
+		<script id="sap-ui-bootstrap"
+				src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js"
+				data-sap-ui-resourceroots='{
+					"dummy.test.integration": "./",
+					"dummy.app" : "../flpSandboxMockServer"
+				}'>
+		</script>
+
+		<script>
+			jQuery.sap.require("dummy.test.integration.PhoneJourneys");
+		</script>
+
+	</head>
+	<body>
+		<div id="qunit"></div>
+		<div id="qunit-fixture"></div>
+	</body>
+</html>

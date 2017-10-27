@@ -1,0 +1,37 @@
+context PO {
+
+    entity APPROVAL_STATUS {
+        ID   : String(1);
+        TEXT : String(200);
+    };
+
+    entity HEADER {
+        key PURCHASEORDERID : String(10) not null;
+            CURRENCY        : String(5);
+            GROSSAMOUNT     : Decimal(15, 2);
+            NETAMOUNT       : Decimal(15, 2);
+            APPROVALSTATUS  : String(1);
+    };
+
+
+    entity ITEM {
+        key PURCHASEORDERID   : String(10) not null;
+        key PURCHASEORDERITEM : String(10) not null;
+            PRODUCTID         : String(10);
+            CURRENCY          : String(5);
+            GROSSAMOUNT       : Decimal(15, 2);
+            NETAMOUNT         : String(10);
+            QUANTITY          : Decimal(5, 2);
+            QUANTITYUNIT      : String(5);
+    };
+
+     define view PO_VIEW as
+        select from HEADER join APPROVAL_STATUS as A on "A"."ID" = "HEADER"."APPROVALSTATUS"
+        {
+            "HEADER"."PURCHASEORDERID" as "PURCHASEORDERID",
+            "HEADER"."APPROVALSTATUS" as "APPROVALSTATUS",
+            "HEADER"."GROSSAMOUNT" as "GROSSAMOUNT",
+            "HEADER"."CURRENCY" as "CURRENCY",
+            "A"."TEXT" as "TEXT"
+        };
+};
